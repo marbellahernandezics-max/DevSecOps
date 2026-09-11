@@ -39,7 +39,8 @@ graph TD
     classDef secureZone fill:#bbf,stroke:#333,stroke-width:2px;
     
     class US internet;
-    class API,BD,AUTH secureZone;```
+    class API,BD,AUTH secureZone;
+---
 
 ## 2. Matriz de Amenazas (Metodología STRIDE)
 

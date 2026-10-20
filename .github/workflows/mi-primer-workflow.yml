@@ -1,10 +1,17 @@
-name: Mi primer workflow
+name: Mi primer workflow DevSecOps
 
-on: [push]
+# 1. Evento que activa el flujo
+on:
+  push:
 
+# 2. Definición de trabajos
 jobs:
   prueba:
+  
+    # 3. Selección del ejecutor (runner)
     runs-on: ubuntu-latest
+
+    # 4. Lista de pasos a ejecutar
     steps:
-      - name: Saludar
+      - name: Imprimir mensaje de prueba
         run: echo "HOLA MUNDO"

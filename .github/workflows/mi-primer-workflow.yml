@@ -1,4 +1,4 @@
-name: Mi primer flujo
+name: Mi primer workflow
 
 on: [push]
 

@@ -1,0 +1,10 @@
+name: Mi primer flujo
+
+on: [push]
+
+jobs:
+  prueba:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Saludar
+        run: echo "HOLA MUNDO"

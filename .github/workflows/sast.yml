@@ -1,4 +1,4 @@
-name: "Análisis Estatico de Seguridad (SAST)"
+name: "Análisis Estático de Seguridad (SAST)"
 
 on:
   push:
@@ -6,7 +6,6 @@ on:
   pull_request:
     branches: [ "main" ]
   schedule:
-    # Se ejecuta automáticamente todos los domingos a las 00:00 UTC
     - cron: '0 0 * * 0'
 
 jobs:
@@ -16,13 +15,12 @@ jobs:
     permissions:
       actions: read
       contents: read
-      security-events: write # Permiso crucial para reportar vulnerabilidades en GitHub
+      security-events: write
 
     strategy:
       fail-fast: false
       matrix:
-        # Define el lenguaje de tu proyecto (ej: 'javascript-typescript', 'python', 'go', 'java-kotlin')
-        language: [ 'javascript-typescript' ]
+        language: [ 'javascript' ]
 
     steps:
     - name: Descargar el código del repositorio
@@ -32,12 +30,7 @@ jobs:
       uses: github/codeql-action/init@v3
       with:
         languages: ${{ matrix.language }}
-        # Opcional: puedes elegir "security-extended" para un análisis más profundo
         queries: security-extended
-
-    # Nota: Si usas lenguajes compilados (Java, C#, C++), aquí deberías agregar 
-    # los pasos para compilar tu código (ej: run: mvn clean package).
-    # Para JavaScript, Python o Go, CodeQL lo hace automáticamente.
 
     - name: Ejecutar el Análisis de CodeQL
       uses: github/codeql-action/analyze@v3
